@@ -31,7 +31,8 @@ while True:
     difference = int((firstAvailableDate - today).days)
 
     # If the first available date is within 3 weeks, popup a window message
-    if difference <= 21:
+    # Assume the difference should be greater than or eq to 1 because sometimes people drop their timeslot at the very last minute, and that time slot is useless.
+    if difference <= 21 and difference >= 1:
         applescript = """
         display dialog "A near timeslot is found, please go to https://oap.ind.nl/oap/en/#/doc" ¬
         with title "IND timeslot withtin 3 weeks found" ¬
